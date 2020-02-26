@@ -20,7 +20,7 @@ RSpec.describe 'POST /api/v1/auth/sign_in', type: :request do
         end
 
         it 'returns 200 response status' do
-            expected(response).to have_http_status 200
+            expect(response).to have_http_status 200
         end
 
         it 'returns the expected response' do
@@ -39,7 +39,7 @@ RSpec.describe 'POST /api/v1/auth/sign_in', type: :request do
         end
 
         it 'returns 401 response status' do
-            expected(response).to have_http_status 401
+            expect(response).to have_http_status 401
         end
 
         it 'returns error message' do
@@ -58,7 +58,7 @@ RSpec.describe 'POST /api/v1/auth/sign_in', type: :request do
         end
 
         it 'returns 401 response status' do
-            expected(response).to have_http_status 401
+            expect(response).to have_http_status 401
         end
 
         it 'returns error message' do
