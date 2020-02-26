@@ -1,5 +1,7 @@
 RSpec.describe Api::V1::PerformanceDataController, type: :request do
-    let(:headers) { { HTTP_ACCEPT: 'application/json' } }
+    let(:user) { create(:user) }
+    let(:credentials) { user.create_new_auth_token }
+    let(:headers) { { HTTP_ACCEPT: 'application/json' }.merge!(credentials) }
 
     describe 'POST /api/v1/performance_data' do
         before do
@@ -13,7 +15,7 @@ RSpec.describe Api::V1::PerformanceDataController, type: :request do
         end
 
         it 'returns 200 response status' do
-            expected(response).to have_http_status 200
+            expect(response).to have_http_status 200
         end
 
         it 'successfully creates a data entry' do
