@@ -33,7 +33,7 @@ RSpec.describe 'POST /api/v1/auth/sign_in', type: :request do
             post '/api/v1/auth/sign_in',
                 params: {
                     email: user.email,
-                    password: wrong_password
+                    password: 'wrong_password'
                 },
                 headers: headers
         end
@@ -51,7 +51,7 @@ RSpec.describe 'POST /api/v1/auth/sign_in', type: :request do
         before do
             post '/api/v1/auth/sign_in',
                 params: {
-                    email: wrong@email.com,
+                    email: 'wrong@email.com',
                     password: user.password
                 },
                 headers: headers
